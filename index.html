@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#8f171b">
+  <meta name="description" content="المنيو الإلكتروني لمطعم أبو راويه - منذ 1968">
+  <title>أبو راويه | المنيو الإلكتروني</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon_real.png" sizes="512x512">
+  <link rel="apple-touch-icon" href="favicon_real.png">
+
+  <style>
+
+    .restaurant-cover {
+      width: min(1120px, calc(100% - 32px));
+      height: 150px;
+      margin: 18px auto 0;
+      overflow: hidden;
+      border-radius: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .restaurant-cover img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media (max-width: 760px) {
+      .restaurant-cover {
+        width: min(100% - 22px, 1120px);
+        height: 105px;
+        margin-top: 12px;
+        border-radius: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-overlay"></div>
+
+  <!-- صورة الغلاف: ضع الصورة التي سترسلها باسم cover.jpg بجوار index.html -->
+  <div class="restaurant-cover">
+    <img src="cover.jpg" alt="غلاف مطعم أبو راويه" onerror="this.style.display='none';">
+  </div>
+
+  <div class="container hero-content">
+    <img class="logo" src="logo.png" alt="شعار أبو راويه">
+    <p class="eyebrow">ABO RAWIA'S RESTAURANTS · SINCE 1968</p>
+    <h1>أبو راويه</h1>
+    <p class="hero-subtitle">مطعم أبو راويه — المنيو الإلكتروني</p>
+    <div class="hero-actions">
+      <a class="btn btn-light" href="#menu">شوف المنيو</a>
+      <a class="btn btn-outline" href="#contact">بيانات المطعم</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="quick-info container">
+    <div><span>📍</span><a href="https://maps.app.goo.gl/zSGkfkH3dfPSSQdd9" target="_blank" rel="noopener noreferrer">موقع المطعم</a></div>
+    <div><span>📍</span><strong>30 شارع الحجاري، بحري، الإسكندرية</strong></div>
+    <div><span>☎</span><a href="tel:04810572">04810572</a></div>
+    <div><span>☎</span><a href="tel:04843500">04843500</a></div>
+    <div><span>💬</span><a href="https://wa.me/201204753033" target="_blank" rel="noopener noreferrer">واتساب 01204753033</a></div>
+    <div><span>💬</span><a href="https://wa.me/201228885354" target="_blank" rel="noopener noreferrer">واتساب 01228885354</a></div>
+  </section>
+
+  <section id="menu" class="menu-section container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow dark">MENU</p>
+        <h2>اختار اللي نفسك فيه</h2>
+      </div>
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="ابحث عن صنف..." aria-label="ابحث عن صنف">
+      </div>
+    </div>
+
+    <nav id="categories" class="category-nav" aria-label="أقسام المنيو"></nav>
+    <div id="menuRoot"></div>
+    <p id="emptyState" class="empty" hidden>مش لاقيين الصنف ده. جرّب كلمة بحث مختلفة.</p>
+  </section>
+
+  <section class="promo">
+    <div class="container promo-inner">
+      <div>
+        <p class="eyebrow">أبو راويه</p>
+        <h2>جاهزين للحفلات والمناسبات</h2>
+        <p>استعداد تام لإقامة الحفلات الداخلية والخارجية — عروض مميزة لعشاء العرائس.</p>
+      </div>
+      <div class="fees">
+        <span>يضاف كوفير 25 جنيه للفرد</span>
+        <span>تضاف 14% قيمة ضريبة مضافة داخل صالة المطعم</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="qr" class="qr-section container">
+    <div class="qr-card">
+      <div>
+        <p class="eyebrow dark">SHARE THE MENU</p>
+        <h2>خلي العميل يمسح الكود ويفتح المنيو</h2>
+        <p>اكتب رابط المنيو بعد النشر، وسيتم إنشاء QR Code جاهز للطباعة.</p>
+        <label for="siteUrl">رابط المنيو</label>
+        <div class="url-row">
+          <input id="siteUrl" type="url" value="https://restaurant-menu.example.com">
+          <button id="generateQr" class="btn btn-primary">إنشاء QR</button>
+        </div>
+        <button id="downloadQr" class="btn btn-dark" disabled>تحميل QR كصورة</button>
+      </div>
+      <div class="qr-box">
+        <div id="qrcode"></div>
+        <strong>امسح الكود وشوف المنيو</strong>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="container footer-grid">
+    <div>
+      <img class="footer-logo" src="logo.png" alt="أبو راويه">
+      <p>أبو راويه — Since 1968</p>
+    </div>
+    <div>
+      <h3>موقع المطعم</h3>
+      <a href="https://maps.app.goo.gl/zSGkfkH3dfPSSQdd9" target="_blank" rel="noopener noreferrer">فتح موقع المطعم على Google Maps</a>
+    </div>
+    <div>
+      <h3>التواصل</h3>
+      <a href="tel:04810572">04810572</a>
+      <a href="tel:04843500">04843500</a>
+      <a href="https://wa.me/201204753033" target="_blank" rel="noopener noreferrer">WhatsApp: 01204753033</a>
+      <a href="https://wa.me/201228885354" target="_blank" rel="noopener noreferrer">WhatsApp: 01228885354</a>
+    </div>
+    <div>
+      <h3>العنوان</h3>
+      <p>30 شارع الحجاري، بحري، الإسكندرية</p>
+    </div>
+  </div>
+  <div class="copyright">© 2026 أبو راويه — جميع الحقوق محفوظة</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
